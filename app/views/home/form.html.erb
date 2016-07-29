@@ -1,46 +1,92 @@
+<link href="https://fonts.googleapis.com/css?family=Miriam+Libre:700" rel="stylesheet">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<h1>You are preparing your <span id="_month"></span></h1>
+  <style type="text/css" media="screen">
+    body {
 
+    }
+    h1 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-family: 'Miriam Libre', sans-serif;
+    }
+    h3 {
+      font-family: 'Miriam Libre', sans-serif;
+      margin-bottom: 0px;
+      font-size: 25px;
+    }
+    input {
+      font-size: 20px;
+    }
+    .money_form {
+      text-align: center;
+      width: 100%;
+      background-color: darkseagreen;
+      border: rgba(0, 88, 158, 0.61);
+      border-style: double;
+      box-sizing: border-box;
+      border-width: 10px;
+    }
+    #source, #source9 {
+      font-size: 20px;
+    }
+    #data_input_comment {
+      font-size: 15px;
+    }
+    #sub {
+      font-size: large;
+    }
+    #can {
+      font-size: 15px;
+      margin-bottom: 5%;
+    }
+  </style>
+</head>
+
+<body>
+<h1>You are preparing your <span id="_month"></span></h1>
 <h1>Personal Balance Sheet</h1>
 
 <%= form_for @datainput, url: '/home/submit', html: {class: "money_form"} do |f| %>
   <h3>Date:</h3> <br>
   <%= f.date_field :date %> <br><br><br>
-  <h3>Monthly Income:</h3> <br>
+  <h3>Monthly Income:</h3>
   <%= f.number_field :income, {:id => "income", :onchange => "updateForm()"} %> <div id="source">
-  </div> <br>
-  <h3>Rent:</h3> <br>
-  <%= f.number_field :rent, {:id => "rent", :onchange => "updateForm()"} %> <div id="source_1">
-  </div> <br>
-  <h3>Loans:</h3> <br>
-  <%= f.number_field :loans, {:id => "loans", :onchange => "updateForm()"} %> <div id="source3">
-  </div><br>
-  <h3>Insurance:</h3> <br>
-  <%= f.number_field :insurance, {:id => "insurance", :onchange => "updateForm()"} %> <div id="source4">
-  </div><br>
-  <h3>Utilities:</h3> <br>
-  <%= f.number_field :utilities, {:id => "utilities", :onchange => "updateForm()"} %> <div id="source5">
-  </div><br>
-  <h3>Entertainment:</h3> <br>
-  <%= f.number_field :entertainment, {:id => "entertainment", :onchange => "updateForm()"} %> <div id="source6">
-  </div><br>
-  <h3>Food:</h3> <br>
-  <%= f.number_field :food, {:id => "food", :onchange => "updateForm()"} %> <div id="source7">
-  </div><br>
-  <h3>Misc:</h3> <br>
-  <%= f.number_field :misc, {:id => "misc", :onchange => "updateForm()"}%> <div id="source8">
-  </div><br><br>
+  </div>
+
+  <h3>Rent:</h3>
+  <%= f.number_field :rent, {:id => "rent", :onchange => "updateForm()"} %>
+
+  <h3>Loans:</h3>
+  <%= f.number_field :loans, {:id => "loans", :onchange => "updateForm()"} %>
+
+  <h3>Insurance:</h3>
+  <%= f.number_field :insurance, {:id => "insurance", :onchange => "updateForm()"} %>
+
+  <h3>Utilities:</h3>
+  <%= f.number_field :utilities, {:id => "utilities", :onchange => "updateForm()"} %>
+
+  <h3>Entertainment:</h3>
+  <%= f.number_field :entertainment, {:id => "entertainment", :onchange => "updateForm()"} %>
+
+  <h3>Food:</h3>
+  <%= f.number_field :food, {:id => "food", :onchange => "updateForm()"} %>
+
+  <h3>Misc:</h3>
+  <%= f.number_field :misc, {:id => "misc", :onchange => "updateForm()"}%><br><br>
+
+  <hr>
+
   <h3>Balance:</h3> <br>
   <%= f.number_field :balance, {:id => "balance", :readonly => "true"} %> <div id="source9">
   </div><br><br>
   <h3>What happened this Month?</h3> <br>
   <%= f.text_area :comment, size: "60x12" %><br>
-  <%= f.submit "Save this Information" %>
-  <%= link_to '<button type="button">Cancel</button>'.html_safe, home_index_path %>
+  <div id="sub"><%= f.submit "Save this Information" %></div>
+  <%= link_to '<button type="button" id="can">Cancel</button>'.html_safe, home_index_path %>
 <% end %>
-
+</body>
 
 
 <script>

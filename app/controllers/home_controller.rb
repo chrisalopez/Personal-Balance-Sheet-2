@@ -13,13 +13,13 @@ class HomeController < ApplicationController
     d = DataInput.new(data_input_params)
     d.user_id = current_user.id
     d.save
-    redirect_to '/home/index', notice: "Watch it, mister!"
+    redirect_to '/home/index', notice: "Your Personal Balance sheet has been submitted!"
   end
 
   def destroy
     @datainput = DataInput.find(params[:id])
     @datainput.destroy
-    redirect_to '/home/index', notice: 'Money was successfully destroyed.'
+    redirect_to '/home/index', notice: 'You Personal Balance sheet was successfully destroyed.'
   end
 
   def data_input_params

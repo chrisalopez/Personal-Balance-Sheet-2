@@ -9,20 +9,21 @@
     }
     h3 {
       font-size: 20px;
+      margin-top: 0px;
       margin-bottom: 0px;
-
+      font-family: 'IM Fell Great Primer', serif;
+    }
+    footer {
+      text-align: center;
+      height: auto;
+      width: 100%;
+      clear: left;
     }
     .history {
       width: 317.5px;
       margin: auto;
       float: left;
       border-style: ridge;
-      /*background-color: rgba(0, 100, 0, 0.18);
-      font-weight: 700;
-      color: rgb(255, 243, 195);
-      height: 150px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
-      margin: 4% 25% 0% 25%;*/
     }
     .input {
       font-size: 22px;
@@ -32,16 +33,32 @@
       width: 102.656px;
       text-align: right;
     }
+    .bainput {
+      font-size: 22px;
+      font-weight: 700;
+      float: right;
+      background-color: #36aef4;
+      padding-left: 67.6%;
+      width: 102.656px;
+      text-align: right;
+      color: white;
+    }
+    .bye {
+      font-size: large;
+    }
     #welcome {
       font-family: 'IM Fell Great Primer', serif;
       text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
+    }
+    #said {
+      font-size: 18px;
     }
   </style>
 </head>
 
 <body>
 <h1 id="welcome">Welcome to your Financial Planning Page</h1>
-<h4 id="fact">This is currently the National Median Income per Household</h4>
+<h4 id="fact">Current information of the National Median Income per Household - Federal Reserve Bank of St. Louis</h4>
 <iframe src="//fred.stlouisfed.org/graph/graph-landing.php?g=6742&width=968&height=450" scrolling="no" frameborder="0" style="overflow:hidden; width:968px; height:500px;" allowTransparency="true"></iframe>
 
 <% @datainputs.each do |data_input| %>
@@ -63,10 +80,10 @@
   <h3>Misc</h3>
   <div class="input"><%= data_input.misc %></div>
   <h3>Balance</h3>
-  <div class="input"><%= data_input.balance %></div>
+  <div class="bainput"><%= data_input.balance %></div>
   <h3>Comment</h3>
-  <div><%= data_input.comment %></div><br><br><br>
-  <%= button_to('Delete This Sheet', '/home/' + data_input.id.to_s, method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+  <div id="said"><%= data_input.comment %></div><br><br><br>
+  <%= button_to('Delete This Sheet', '/home/' + data_input.id.to_s, method: "delete", remote: true, data: { confirm: 'Are you sure?'}) %>
   </div>
 <%end %>
 </body>
