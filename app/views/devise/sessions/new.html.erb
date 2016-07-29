@@ -1,4 +1,59 @@
-<h2>Log in</h2>
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400i" rel="stylesheet">
+
+<head>
+  <meta charset="utf-8">
+  <style type="text/css" media="screen">
+    body {
+      background: url(http://previews.123rf.com/images/iqoncept/iqoncept1305/iqoncept130500046/19587115-Many-3d-numbers-in-dissarray-spread-out-to-represent-chaos-or-learning-mathematics-or-accounting-Stock-Photo.jpg);
+      background-size: cover;
+    }
+    .main_title{
+      font-family: 'IM Fell Great Primer', serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
+      background-color: darkgreen;
+      text-align: center;
+      color: white;
+      width: 102%;
+      margin: 0% -1%;
+    }
+    .lgin {
+      background-color: white;
+      font-size: 30px;
+      text-align: center;
+      margin: 10% 25% 0% 25%;
+    }
+    .actions {
+      background-color: white;
+      text-align: center;
+    }
+    .field {
+      text-align: center;
+      font-size: 20px;
+    }
+    .new_user{
+      background-color: rgba(0, 100, 0, 0.18);
+      font-weight: 700;
+      color: rgb(255, 243, 195);
+      height: 150px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
+      margin: 4% 25% 0% 25%;
+      background-color: rgba(000, .5);
+    }
+    #user_email {
+      font-size: 15px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 5%;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 class="main_title">Welcome to your Personal General Ledger</h1>
+<h2 class="lgin">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -22,5 +77,11 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+</body>
 
+
+<footer>
 <%= render "devise/shared/links" %>
+
+<p class="fright">&copy; 2016 Christopher Lopez</p>
+</footer>
