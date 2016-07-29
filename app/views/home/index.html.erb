@@ -1,6 +1,8 @@
 <%= link_to '<button type="button">New Finance Sheet</button>'.html_safe, home_form_path %>
 
 <h1>Welcome to your Financial Planning Page</h1>
+<h4>This is currently the National Median Income per Household</h4>
+<iframe src="//fred.stlouisfed.org/graph/graph-landing.php?g=6742&width=968&height=450" scrolling="no" frameborder="0" style="overflow:hidden; width:968px; height:500px;" allowTransparency="true"></iframe>
 
 <% @datainputs.each do |data_input| %>
   <div class="money_form">

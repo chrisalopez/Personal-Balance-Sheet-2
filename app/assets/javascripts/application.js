@@ -1,5 +1,4 @@
 function updateForm() {
-
 var _income = parseInt(document.getElementById('income').value);
 var exp1 = parseInt(document.getElementById('rent').value);
 var exp2 = parseInt(document.getElementById('loans').value);
@@ -36,8 +35,43 @@ if (!exp7) {
 };
 
 _balance.value = _income - (exp1 + exp2 + exp3 + exp4 + exp5 + exp6 + exp7);
+
+if (_balance.value >= 1000) {
+  document.getElementById("source9").innerHTML = "Good Month - Start Saving! <a href=http://www.clark.com/how-much-should-you-save-for-retirement> Click Here to View a Helpful Link </a>";
+} else {
+  document.getElementById("source9").innerHTML = "Bad Month - You should adjust your spending. <a href=http://www.clark.com/7-ways-to-save-money-on-a-low-income> Click Here to View a Helpful Link </a>";
+};
+if (_income >= 4328.25) {
+  document.getElementById("source").innerHTML = "You are ABOVE the National Average.<a href=https://www.census.gov/quickfacts/table/PST045215/00> Click Here to view resources</a>";
+} else {
+  document.getElementById("source").innerHTML = "You are BELOW the National Average. <a href=http://www.clark.com/easy-ways-to-make-extra-cash> Click Here to View a Helpful Link </a>"
 };
 
+};
+
+// function resources() {
+// var _income = parseInt(document.getElementById('income').value);
+// var exp1 = parseInt(document.getElementById('rent').value);
+// var exp2 = parseInt(document.getElementById('loans').value);
+// var exp3 = parseInt(document.getElementById('insurance').value);
+// var exp4 = parseInt(document.getElementById('utilities').value);
+// var exp5 = parseInt(document.getElementById('entertainment').value);
+// var exp6 = parseInt(document.getElementById('food').value);
+// var exp7 = parseInt(document.getElementById('misc').value);
+// var _balance = document.getElementById('balance');
+
+// if (_income >= 4328.25) {
+//   document.getElementById("source").innerHTML = "Good day";
+// } else {
+//   document.getElementById("source").innerHTML = "Bad day";
+// };
+
+// if (exp1 >= 100) {
+//   document.getElementById("source_1").innerHTML = "Good day";
+// } else {
+//   document.getElementById("source_1").innerHTML = "Bad day";
+// };
+// };
 function onload() {
     var month = new Array();
     month[0] = "January";
