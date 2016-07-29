@@ -1,32 +1,76 @@
 <link href="https://fonts.googleapis.com/css?family=Miriam+Libre:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400i" rel="stylesheet">
 <%= link_to '<button type="button" style="font-family: Miriam Libre, sans-serif; font-size: 20px;">New Finance Sheet</button>'.html_safe, home_form_path %>
+<head>
+  <meta charset="utf-8">
+  <style type="text/css" media="screen">
+    body {
 
-<h1>Welcome to your Financial Planning Page</h1>
-<h4>This is currently the National Median Income per Household</h4>
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 0px;
+
+    }
+    .history {
+      width: 317.5px;
+      margin: auto;
+      float: left;
+      border-style: ridge;
+      /*background-color: rgba(0, 100, 0, 0.18);
+      font-weight: 700;
+      color: rgb(255, 243, 195);
+      height: 150px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
+      margin: 4% 25% 0% 25%;*/
+    }
+    .input {
+      font-size: 22px;
+      float: right;
+      background-color: aquamarine;
+      padding-left: 67.6%;
+      width: 102.656px;
+      text-align: right;
+    }
+    #welcome {
+      font-family: 'IM Fell Great Primer', serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,.25), 2px 2px 4px rgba(0,0,0,.15);
+    }
+  </style>
+</head>
+
+<body>
+<h1 id="welcome">Welcome to your Financial Planning Page</h1>
+<h4 id="fact">This is currently the National Median Income per Household</h4>
 <iframe src="//fred.stlouisfed.org/graph/graph-landing.php?g=6742&width=968&height=450" scrolling="no" frameborder="0" style="overflow:hidden; width:968px; height:500px;" allowTransparency="true"></iframe>
 
 <% @datainputs.each do |data_input| %>
-  <div class="money_form">
+  <div class="history">
   <h3>Date</h3>
-  <div><%= data_input.date %></div>
+  <div class="input"><%= data_input.date %></div>
   <h3>Income</h3>
-  <div><%= data_input.income %></div>
+  <div class="input"><%= data_input.income %></div>
   <h3>Rent</h3>
-  <div><%= data_input.rent %></div>
+  <div class="input"><%= data_input.rent %></div>
   <h3>Loans</h3>
-  <div><%= data_input.loans %></div>
+  <div class="input"><%= data_input.loans %></div>
   <h3>Utilities</h3>
-  <div><%= data_input.utilities %></div>
+  <div class="input"><%= data_input.utilities %></div>
   <h3>Entertainment</h3>
-  <div><%= data_input.entertainment %></div>
+  <div class="input"><%= data_input.entertainment %></div>
   <h3>Food</h3>
-  <div><%= data_input.food %></div>
+  <div class="input"><%= data_input.food %></div>
   <h3>Misc</h3>
-  <div><%= data_input.misc %></div>
+  <div class="input"><%= data_input.misc %></div>
   <h3>Balance</h3>
-  <div><%= data_input.balance %></div>
+  <div class="input"><%= data_input.balance %></div>
   <h3>Comment</h3>
   <div><%= data_input.comment %></div><br><br><br>
   <%= button_to('Delete This Sheet', '/home/' + data_input.id.to_s, method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
   </div>
 <%end %>
+</body>
+
+<footer>
+  <p class="fright">&copy; 2016 Christopher Lopez</p>
+</footer>
